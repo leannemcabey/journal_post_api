@@ -1,3 +1,3 @@
 class Postcard < ApplicationRecord
-  belongs_to :postcards
+  belongs_to :journal
 end

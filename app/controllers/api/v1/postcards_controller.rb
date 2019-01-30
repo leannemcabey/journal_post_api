@@ -4,17 +4,17 @@ class Api::V1::PostcardsController < ApplicationController
 
   def index
     @postcards = Postcard.all
-    render json: @postcards, status: 'accepted'
+    render json: @postcards, status: 200
   end
 
   def show
     @postcard = find_postcard
-    render json: @postcard, status: 'accepted'
+    render json: @postcard, status: 200
   end
 
   def create
-    @postcard = Postcard.new(postcard_params)
-    render json: @postcard, status: 'accepted'
+    @postcard = Postcard.create(postcard_params)
+    render json: @postcard, status: 200
   end
 
   private

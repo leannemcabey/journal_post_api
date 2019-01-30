@@ -4,23 +4,23 @@ class Api::V1::JournalsController < ApplicationController
 
   def index
     @journals = Journal.all
-    render json: @journals, status: 'accepted'
+    render json: @journals, status: 200
   end
 
   def show
     @journal = find_journal
-    render json: @journal, status: 'accepted'
+    render json: @journal, status: 200
   end
 
   def create
-    @journal = Journal.new(journal_params)
-    render json: @journal, status: 'accepted'
+    @journal = Journal.create(journal_params)
+    render json: @journal, status: 200
   end
 
   def update
     @journal = find_journal
     @journal.update(journal_params)
-    render json: @journal, status: 'accepted'
+    render json: @journal, status: 200
   end
 
   private
