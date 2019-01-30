@@ -26,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
     def user_params
-      params.permit(:first_name, :last_name, :street_address, :city, :state, :zipcode, :email, :password, :current_journal_id)
+      params.permit(:first_name, :last_name, :street_address, :city, :state, :zipcode, :email, :username, :password, :current_journal_id)
     end
 
     def find_user
