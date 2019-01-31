@@ -24,7 +24,7 @@ class Api::V1::PostcardsController < ApplicationController
     end
 
     def find_postcard
-      Postcard.find(params[id])
+      Postcard.find(params[:id])
     end
 
 end

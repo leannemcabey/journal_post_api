@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def find_user
-      User.find(params[id])
+      User.find(params[:id])
     end
 
 end

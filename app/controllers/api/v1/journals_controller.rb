@@ -30,7 +30,7 @@ class Api::V1::JournalsController < ApplicationController
     end
 
     def find_journal
-      Journal.find(params[id])
+      Journal.find(params[:id])
     end
 
 end
