@@ -45,3 +45,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'active_model_serializers'
+
+gem 'aws-sdk'
+gem 'aws-sdk-rails', '~> 2'
+gem 'aws-sdk-s3', '~> 1'
