@@ -23,19 +23,14 @@ class Api::V1::PostcardsController < ApplicationController
   end
 
   def post_photo_to_s3
-    base64_string = params[:postcard][:photo_url]
-    decoded_file = Base64.decode64(base64_string)
-
-    byebug
+    encoded_file = params[:postcard][:photo_url]
+    decoded_file = Base64.decode64(encoded_file)
 
     keys = Rails.application.credentials[:aws]
     creds = Aws::Credentials.new(keys[:access_key_id], keys[:secret_access_key])
     s3 = Aws::S3::Resource.new(region:'us-east-2', credentials: creds)
     bucket = s3.bucket('journalpost')
-    # name = file.name
-    # name = File.basename(file)
     obj = s3.bucket('journalpost').object(DateTime.now.to_s)
-    # obj.upload_file(decoded_file)
 
     obj.put(body: decoded_file, acl: 'public-read', content_type: 'image/jpeg', content_encoding: 'base64')
 
